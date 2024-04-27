@@ -3,8 +3,6 @@ from __future__ import annotations
 import logging
 import os
 
-import torch
-
 from modules import (
     devices,
     errors,
@@ -27,7 +25,7 @@ class FaceRestorerGFPGAN(face_restoration_utils.CommonFaceRestoration):
     def get_device(self):
         return devices.device_gfpgan
 
-    def load_net(self) -> torch.Module:
+    def load_net(self) -> None:
         for model_path in modelloader.load_models(
             model_path=self.model_path,
             model_url=model_url,
